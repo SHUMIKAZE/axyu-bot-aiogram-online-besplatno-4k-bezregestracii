@@ -26,7 +26,10 @@ async def cmd_start(message: types.Message):
 @dp.message()
 async def echo_answer(message: types.Message):
     # Мы просто отправляем тот же текст обратно
-    await message.reply(f"В смысле блять '{message.text}'? Ты охуел?")
+    if message.text == "СУПЕР СЕКРЕТНЫЙ МАССАЖ" :
+        await message.reply(f"бля ну нихуя себе, а ты у нас любитель находить секретики")
+    else :
+        await message.reply(f"В смысле блять '{message.text}'? Ты охуел?")
 
 # 5. Функция запуска
 async def main():
