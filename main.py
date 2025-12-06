@@ -5,6 +5,7 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeybo
 from aiogram.filters import CommandStart
 
 # 1. Вставь сюда свой токен
+TOKEN = '7062578652:AAF7IvPhN6YYUAz4Kt6UDaYEjHtv7deo5ig'
 TOKEN = '7062578652:AAGE0rZScE6mZYmXvxWuTjwL5yvGvdnRN_c'
 
 # Включаем логирование, чтобы видеть в консоли, что происходит
@@ -86,7 +87,13 @@ async def help_callback(callback_query: types.CallbackQuery):
 @dp.message()
 async def echo_answer(message: types.Message):
     # Мы просто отправляем тот же текст обратно
-    await message.answer(f"В смысле блять '{message.text}'? Ты охуел?")
+    if message.text == "СУПЕР СЕКРЕТНЫЙ МАССАЖ":
+        await message.answer("О, ты знаешь секретный пароль! Поздравляю, ты получил доступ к секретной информации:")
+        await message.answer(f"<span class='tg-spoiler'>ХАХАХАХА ТЫ ПОПАЛ!!! ТЕПЕРЬ ТВОЙ АЙПИ У МЕНЯ!!!!!</span>", parse_mode="HTML")
+        #await message.answer("<tg-spoiler>ХАХАХАХА ТЫ ПОПАЛ!!! ТЕПЕРЬ ТВОЙ АЙПИ У МЕНЯ!!!!!</tg-spoiler>")
+    else:
+        await message.answer(f"В смысле блять '{message.text}'? Ты охуел?")
+
 
 # 5. Функция запуска
 async def main():
